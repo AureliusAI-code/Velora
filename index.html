@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VELORA</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -18,64 +16,35 @@ padding:0;
 box-sizing:border-box;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
 body{
-background:#09090c;
-color:white;
 font-family:'Inter',sans-serif;
+background:#06070a;
+color:white;
 overflow-x:hidden;
 }
 
 /* BACKGROUND */
 
-.bg-glow{
+.bg{
 position:fixed;
 inset:0;
-pointer-events:none;
-z-index:-1;
 overflow:hidden;
+z-index:-2;
+background:
+radial-gradient(circle at top right,#6d3dff20 0%,transparent 35%),
+radial-gradient(circle at bottom left,#b27dff15 0%,transparent 40%),
+#06070a;
 }
 
-.glow{
-position:absolute;
-border-radius:50%;
-filter:blur(120px);
-animation:float 10s ease-in-out infinite;
-}
-
-.glow1{
-width:500px;
-height:500px;
-background:#7f4fff25;
-top:-150px;
-right:-120px;
-}
-
-.glow2{
-width:450px;
-height:450px;
-background:#b28cff15;
-bottom:-150px;
-left:-100px;
-animation-delay:2s;
-}
-
-.glow3{
-width:350px;
-height:350px;
-background:#9c6fff18;
-top:40%;
-left:35%;
-animation-delay:4s;
-}
-
-@keyframes float{
-0%{transform:translateY(0px);}
-50%{transform:translateY(30px);}
-100%{transform:translateY(0px);}
+.grid{
+position:fixed;
+inset:0;
+background-image:
+linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
+background-size:50px 50px;
+mask-image:linear-gradient(to bottom,transparent,black);
+z-index:-1;
 }
 
 /* NAVBAR */
@@ -85,12 +54,12 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:22px 8%;
+padding:24px 7%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-backdrop-filter:blur(20px);
-background:#09090cb5;
+backdrop-filter:blur(18px);
+background:#08090dbb;
 border-bottom:1px solid rgba(255,255,255,0.05);
 z-index:999;
 }
@@ -99,83 +68,78 @@ z-index:999;
 display:flex;
 align-items:center;
 gap:14px;
-font-size:28px;
+font-size:24px;
 font-weight:700;
-letter-spacing:1px;
+letter-spacing:2px;
 }
 
 .logo img{
 width:42px;
 height:42px;
-border-radius:12px;
+border-radius:14px;
 }
 
 .nav{
 display:flex;
-align-items:center;
 gap:40px;
+align-items:center;
 }
 
 .nav a{
 text-decoration:none;
-color:#b8b8b8;
-font-size:14px;
+color:#b6b6b6;
+font-size:13px;
 letter-spacing:2px;
 transition:0.3s;
 }
 
 .nav a:hover{
-color:#b28cff;
+color:#b48cff;
 }
 
-.connect-btn{
-padding:16px 30px;
-background:linear-gradient(135deg,#7f4fff,#b28cff);
-border:none;
-border-radius:18px;
+.nav-btn{
+padding:15px 28px;
+background:linear-gradient(135deg,#7647ff,#b48cff);
+border-radius:16px;
+text-decoration:none;
 color:white;
-font-weight:600;
-cursor:pointer;
 font-size:14px;
-box-shadow:0 0 35px #7f4fff40;
-transition:0.3s;
-}
-
-.connect-btn:hover{
-transform:translateY(-3px);
+font-weight:600;
+box-shadow:0 0 40px #7647ff55;
 }
 
 /* HERO */
 
 .hero{
-padding:180px 8% 120px;
-display:grid;
-grid-template-columns:1.1fr 1fr;
-gap:70px;
-align-items:center;
+padding:170px 7% 120px;
 min-height:100vh;
+position:relative;
+display:flex;
+flex-direction:column;
+justify-content:center;
 }
 
 .badge{
 display:inline-flex;
 align-items:center;
 gap:12px;
-padding:14px 24px;
+padding:14px 22px;
 border-radius:999px;
 background:#ffffff05;
 border:1px solid rgba(255,255,255,0.08);
-margin-bottom:40px;
 font-size:12px;
 letter-spacing:4px;
-color:#c4a8ff;
+color:#caaeff;
+margin-bottom:40px;
+width:max-content;
 }
 
 .dot{
 width:10px;
 height:10px;
 border-radius:50%;
-background:#9c6fff;
-box-shadow:0 0 20px #9c6fff;
+background:#9f73ff;
+box-shadow:0 0 18px #9f73ff;
 animation:pulse 2s infinite;
 }
 
@@ -186,126 +150,113 @@ animation:pulse 2s infinite;
 }
 
 .hero h1{
-font-size:110px;
-line-height:0.88;
-font-family:'Cormorant Garamond',serif;
+font-size:145px;
+line-height:0.86;
+font-weight:600;
+letter-spacing:-6px;
+max-width:1200px;
 margin-bottom:35px;
 }
 
 .hero h1 span{
-color:#9c6fff;
+background:linear-gradient(135deg,#ffffff,#9f73ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .hero p{
-font-size:20px;
+font-size:22px;
 line-height:1.8;
-color:#8d8d8d;
-max-width:620px;
-margin-bottom:45px;
+color:#8f8f8f;
+max-width:760px;
+margin-bottom:50px;
 }
 
 .hero-buttons{
 display:flex;
 gap:20px;
 flex-wrap:wrap;
-margin-bottom:60px;
+margin-bottom:90px;
 }
 
-.primary-btn{
-padding:18px 34px;
-background:linear-gradient(135deg,#7f4fff,#b28cff);
+.primary{
+padding:20px 36px;
+background:linear-gradient(135deg,#7647ff,#b48cff);
 border-radius:18px;
 text-decoration:none;
 color:white;
 font-weight:600;
-box-shadow:0 0 40px #7f4fff35;
+font-size:15px;
+box-shadow:0 0 45px #7647ff40;
 transition:0.3s;
 }
 
-.primary-btn:hover{
+.primary:hover{
 transform:translateY(-4px);
 }
 
-.secondary-btn{
-padding:18px 34px;
+.secondary{
+padding:20px 36px;
 border-radius:18px;
+border:1px solid rgba(255,255,255,0.08);
 text-decoration:none;
 color:white;
-border:1px solid rgba(255,255,255,0.08);
-background:#ffffff03;
+background:#ffffff04;
 }
 
-/* STATS */
+/* FLOATING PANEL */
 
-.stats{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.stat{
-padding:24px 30px;
-border-radius:24px;
-background:#111117;
+.panel{
+position:absolute;
+right:7%;
+top:180px;
+width:480px;
+height:640px;
+background:linear-gradient(145deg,#11131a,#0a0b0f);
 border:1px solid rgba(255,255,255,0.06);
-min-width:150px;
-}
-
-.stat h2{
-font-size:52px;
-font-family:'Cormorant Garamond',serif;
-color:#b28cff;
-margin-bottom:10px;
-}
-
-.stat span{
-font-size:12px;
-letter-spacing:3px;
-color:#8b8b8b;
-}
-
-/* SIMULATION BOX */
-
-.simulation{
-height:650px;
-border-radius:36px;
-background:linear-gradient(145deg,#121218,#0c0d12);
-border:1px solid rgba(255,255,255,0.06);
-position:relative;
+border-radius:38px;
 overflow:hidden;
-padding:35px;
 box-shadow:
-0 0 70px rgba(127,79,255,0.15),
-inset 0 0 80px rgba(255,255,255,0.02);
+0 0 80px rgba(118,71,255,0.20),
+inset 0 0 100px rgba(255,255,255,0.02);
 }
 
-.grid{
+.panel::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at top,#9f73ff22 0%,transparent 35%);
+}
+
+.panel-grid{
 position:absolute;
 inset:0;
 background-image:
-linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
 background-size:40px 40px;
-mask-image:linear-gradient(to bottom,transparent,black);
 }
 
-.sim-top,
-.sim-bottom{
+.top-bar{
+position:absolute;
+top:30px;
+left:30px;
+right:30px;
 display:flex;
 justify-content:space-between;
 font-size:12px;
-letter-spacing:5px;
-color:#808080;
-position:relative;
+letter-spacing:4px;
+color:#8a8a8a;
 z-index:2;
 }
 
 .live{
 width:12px;
 height:12px;
+background:#9f73ff;
 border-radius:50%;
-background:#b28cff;
-box-shadow:0 0 20px #b28cff;
+box-shadow:0 0 20px #9f73ff;
 }
 
 .node{
@@ -313,121 +264,162 @@ position:absolute;
 width:14px;
 height:14px;
 border-radius:50%;
-background:#b28cff;
-box-shadow:0 0 25px #9c6fff;
-z-index:2;
+background:#b48cff;
+box-shadow:0 0 25px #9f73ff;
 }
 
-.n1{top:170px;left:120px;}
-.n2{top:230px;right:120px;}
-.n3{bottom:170px;left:180px;}
-.n4{bottom:120px;right:120px;}
-.n5{top:340px;left:300px;}
+.n1{top:170px;left:90px;}
+.n2{top:240px;right:100px;}
+.n3{bottom:180px;left:170px;}
+.n4{bottom:120px;right:90px;}
+.n5{top:360px;left:250px;}
 
 .line{
 position:absolute;
 height:1px;
-background:#ffffff22;
+background:#ffffff20;
 transform-origin:left;
 }
 
 .l1{
 width:280px;
 top:180px;
-left:130px;
-transform:rotate(15deg);
+left:100px;
+transform:rotate(12deg);
 }
 
 .l2{
-width:220px;
-top:240px;
-right:130px;
+width:240px;
+top:250px;
+right:110px;
 transform:rotate(120deg);
 }
 
 .l3{
-width:320px;
-bottom:180px;
-left:190px;
+width:300px;
+bottom:190px;
+left:180px;
 transform:rotate(-10deg);
 }
 
 .l4{
-width:220px;
-top:340px;
-left:210px;
+width:180px;
+top:360px;
+left:200px;
 transform:rotate(-35deg);
 }
 
-.sim-bottom{
+.bottom-bar{
 position:absolute;
-bottom:35px;
-left:35px;
-right:35px;
+bottom:30px;
+left:30px;
+right:30px;
+display:flex;
+justify-content:space-between;
+font-size:12px;
+letter-spacing:4px;
+color:#8a8a8a;
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:24px;
+margin-top:30px;
+}
+
+.stat{
+padding:38px;
+background:#101117;
+border-radius:28px;
+border:1px solid rgba(255,255,255,0.06);
+position:relative;
+overflow:hidden;
+}
+
+.stat::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(180deg,transparent,#7647ff12);
+}
+
+.stat h2{
+font-size:72px;
+font-weight:600;
+margin-bottom:10px;
+background:linear-gradient(135deg,#ffffff,#b48cff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.stat span{
+font-size:12px;
+letter-spacing:4px;
+color:#8f8f8f;
 }
 
 /* SECTION */
 
-section{
-padding:120px 8%;
+.section{
+padding:120px 7%;
 }
 
 .section-mini{
-font-size:13px;
+font-size:12px;
 letter-spacing:6px;
-color:#9c6fff;
-margin-bottom:25px;
+color:#9f73ff;
+margin-bottom:28px;
 }
 
 .section-title{
-font-size:82px;
-line-height:0.95;
-font-family:'Cormorant Garamond',serif;
+font-size:110px;
+line-height:0.9;
+letter-spacing:-5px;
 margin-bottom:30px;
-}
-
-.section-title span{
-color:#b28cff;
+max-width:1000px;
 }
 
 .section-text{
-font-size:20px;
+font-size:21px;
 line-height:1.9;
-color:#8d8d8d;
+color:#8f8f8f;
 max-width:850px;
 margin-bottom:70px;
 }
 
 /* CARDS */
 
-.grid-cards{
+.cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:28px;
 }
 
 .card{
-padding:40px;
-border-radius:30px;
-background:#111117;
+padding:45px;
+background:#101117;
+border-radius:32px;
 border:1px solid rgba(255,255,255,0.06);
-transition:0.4s;
 position:relative;
 overflow:hidden;
+transition:0.4s;
 }
 
 .card::before{
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(180deg,transparent,#7f4fff10);
+background:linear-gradient(180deg,transparent,#7647ff14);
 opacity:0;
 transition:0.4s;
 }
 
 .card:hover{
-transform:translateY(-8px);
-border-color:#7f4fff55;
+transform:translateY(-10px);
+border-color:#7647ff55;
 }
 
 .card:hover::before{
@@ -435,17 +427,17 @@ opacity:1;
 }
 
 .card h3{
-font-size:56px;
-font-family:'Cormorant Garamond',serif;
-margin-bottom:18px;
+font-size:68px;
+margin-bottom:16px;
 }
 
 .card p{
-color:#8a8a8a;
+font-size:17px;
 line-height:1.8;
+color:#8f8f8f;
 }
 
-/* AGENTS */
+/* TAGS */
 
 .tags{
 display:flex;
@@ -455,118 +447,64 @@ gap:18px;
 
 .tag{
 padding:18px 24px;
+background:#101117;
 border:1px solid rgba(255,255,255,0.08);
-border-radius:14px;
-background:#111117;
+border-radius:16px;
 font-size:14px;
 letter-spacing:2px;
-}
-
-/* PRICING */
-
-.pricing{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:30px;
-}
-
-.price-card{
-padding:45px;
-border-radius:32px;
-background:#111117;
-border:1px solid rgba(255,255,255,0.06);
-position:relative;
-overflow:hidden;
-}
-
-.price-card.active{
-border:1px solid #7f4fff55;
-background:linear-gradient(180deg,#171820,#101116);
-}
-
-.coming{
-position:absolute;
-top:25px;
-right:25px;
-padding:10px 18px;
-border-radius:999px;
-background:#9c6fff;
-font-size:11px;
-letter-spacing:3px;
-}
-
-.price-top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:35px;
-}
-
-.price-top h3{
-font-size:58px;
-font-family:'Cormorant Garamond',serif;
-}
-
-.price-top span{
-font-size:12px;
-letter-spacing:4px;
-color:#8d8d8d;
-}
-
-.price-card ul{
-display:flex;
-flex-direction:column;
-gap:22px;
-margin-bottom:40px;
-padding-left:20px;
-color:#8c8c8c;
-line-height:1.8;
 }
 
 /* FOOTER */
 
 footer{
-padding:80px 8%;
-text-align:center;
-border-top:1px solid rgba(255,255,255,0.05);
+padding:80px 7%;
+border-top:1px solid rgba(255,255,255,0.06);
+display:flex;
+justify-content:space-between;
+align-items:center;
 color:#777;
-margin-top:80px;
+font-size:14px;
 }
 
 /* MOBILE */
 
-@media(max-width:980px){
+@media(max-width:1200px){
+
+.panel{
+position:relative;
+width:100%;
+right:auto;
+top:auto;
+margin-top:80px;
+}
 
 .hero{
-grid-template-columns:1fr;
+padding-top:150px;
 }
 
 .hero h1{
-font-size:72px;
+font-size:90px;
+}
+
+.stats{
+grid-template-columns:repeat(2,1fr);
 }
 
 .section-title{
-font-size:56px;
-}
-
-.simulation{
-height:500px;
-}
-
-.nav{
-display:none;
+font-size:70px;
 }
 
 }
 
-@media(max-width:600px){
+@media(max-width:700px){
 
 .hero h1{
-font-size:56px;
+font-size:62px;
+letter-spacing:-3px;
 }
 
 .section-title{
-font-size:44px;
+font-size:50px;
 }
 
 .hero p,
@@ -574,13 +512,31 @@ font-size:44px;
 font-size:17px;
 }
 
+.stats{
+grid-template-columns:1fr;
+}
+
 .hero-buttons{
 flex-direction:column;
 }
 
-.primary-btn,
-.secondary-btn{
+.primary,
+.secondary{
 width:100%;
+text-align:center;
+}
+
+.nav{
+display:none;
+}
+
+.panel{
+height:500px;
+}
+
+footer{
+flex-direction:column;
+gap:20px;
 text-align:center;
 }
 
@@ -588,14 +544,10 @@ text-align:center;
 
 </style>
 </head>
-
 <body>
 
-<div class="bg-glow">
-<div class="glow glow1"></div>
-<div class="glow glow2"></div>
-<div class="glow glow3"></div>
-</div>
+<div class="bg"></div>
+<div class="grid"></div>
 
 <header>
 
@@ -605,39 +557,35 @@ VELORA
 </div>
 
 <div class="nav">
-<a href="#">FEATURES</a>
 <a href="#">INTELLIGENCE</a>
 <a href="#">SIMULATION</a>
+<a href="#">ARCHETYPES</a>
 <a href="#">PRICING</a>
-<button class="connect-btn">CONNECT</button>
+<a href="#" class="nav-btn">CONNECT</a>
 </div>
 
 </header>
 
-<!-- HERO -->
-
 <section class="hero">
-
-<div>
 
 <div class="badge">
 <div class="dot"></div>
-PREDICTION ENGINE • LIVE ONCHAIN
+LIVE PREDICTION ENGINE
 </div>
 
 <h1>
-Simulate.<br>
-Predict.<br>
-<span>Every scenario.</span>
+Predict the<br>
+future of<br>
+<span>crypto behavior.</span>
 </h1>
 
 <p>
-VELORA is a multi-agent crypto intelligence engine that models market behavior before narratives become reality.
+VELORA is a multi-agent intelligence engine designed to simulate market psychology, emergent narratives, and onchain behavioral patterns before they happen.
 </p>
 
 <div class="hero-buttons">
-<a href="#" class="primary-btn">Run Simulation →</a>
-<a href="#" class="secondary-btn">Explore Agents</a>
+<a href="#" class="primary">Run Simulation →</a>
+<a href="#" class="secondary">Explore Intelligence</a>
 </div>
 
 <div class="stats">
@@ -657,15 +605,18 @@ VELORA is a multi-agent crypto intelligence engine that models market behavior b
 <span>ROUNDS</span>
 </div>
 
+<div class="stat">
+<h2>24/7</h2>
+<span>LIVE SIGNALS</span>
 </div>
 
 </div>
 
-<div class="simulation">
+<div class="panel">
 
-<div class="grid"></div>
+<div class="panel-grid"></div>
 
-<div class="sim-top">
+<div class="top-bar">
 SIMULATION / LIVE
 <div class="live"></div>
 </div>
@@ -681,8 +632,8 @@ SIMULATION / LIVE
 <div class="line l3"></div>
 <div class="line l4"></div>
 
-<div class="sim-bottom">
-20 ARCHETYPES ACTIVE
+<div class="bottom-bar">
+20 AGENTS ACTIVE
 <span>ROUND 04 / 04</span>
 </div>
 
@@ -690,9 +641,7 @@ SIMULATION / LIVE
 
 </section>
 
-<!-- INTELLIGENCE -->
-
-<section>
+<section class="section">
 
 <div class="section-mini">
 PREDICTION INTELLIGENCE
@@ -700,33 +649,33 @@ PREDICTION INTELLIGENCE
 
 <h2 class="section-title">
 Not sentiment.<br>
-<span>Prediction intelligence.</span>
+Prediction intelligence.
 </h2>
 
 <p class="section-text">
-VELORA combines behavioral AI agents, market narratives, and chain-aware simulations into a single intelligence layer for next generation crypto forecasting.
+VELORA combines behavioral AI agents, market narratives, wallet flows, and realtime onchain simulations into one adaptive intelligence layer.
 </p>
 
-<div class="grid-cards">
+<div class="cards">
 
 <div class="card">
 <h3>20</h3>
 <p>
-Calibrated crypto-native archetypes trained from real market behavior.
+Calibrated crypto-native archetypes trained from real market behavior and narratives.
 </p>
 </div>
 
 <div class="card">
 <h3>4</h3>
 <p>
-Adaptive simulations across Ethereum, Base, Solana, and BNB.
+Chain-aware simulations across Ethereum, Base, Solana, and BNB ecosystems.
 </p>
 </div>
 
 <div class="card">
 <h3>LIVE</h3>
 <p>
-Realtime onchain signals, narratives, wallet flows, and volatility tracking.
+Realtime volatility tracking, narrative monitoring, and behavioral divergence analysis.
 </p>
 </div>
 
@@ -734,190 +683,50 @@ Realtime onchain signals, narratives, wallet flows, and volatility tracking.
 
 </section>
 
-<!-- HOW IT WORKS -->
-
-<section>
-
-<div class="section-mini">
-HOW IT WORKS
-</div>
-
-<h2 class="section-title">
-Three steps to a prediction.
-</h2>
-
-<div class="grid-cards">
-
-<div class="card">
-<h3>01</h3>
-<p>
-Describe the token, narrative, or ecosystem event you want to simulate.
-</p>
-</div>
-
-<div class="card">
-<h3>02</h3>
-<p>
-VELORA deploys multiple AI archetypes with unique biases and behaviors.
-</p>
-</div>
-
-<div class="card">
-<h3>03</h3>
-<p>
-Receive structured forecasts, narrative trajectories, and coalition behavior.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- ARCHETYPES -->
-
-<section>
+<section class="section">
 
 <div class="section-mini">
 ARCHETYPE INTELLIGENCE
 </div>
 
 <h2 class="section-title">
-Twenty crypto-native voices.<br>
+Twenty voices.<br>
 None generic.
 </h2>
 
 <p class="section-text">
-Each VELORA agent carries accumulated experience, distinct market psychology, and calibrated behavioral bias.
+Each VELORA agent carries accumulated market psychology, chain-specific behavior, and calibrated emotional bias.
 </p>
 
 <div class="tags">
 
 <div class="tag">CT Degen</div>
 <div class="tag">Silent Whale</div>
-<div class="tag">VC Analyst</div>
 <div class="tag">MEV Searcher</div>
+<div class="tag">Institutional</div>
 <div class="tag">NFT Flipper</div>
 <div class="tag">Researcher</div>
-<div class="tag">Micro Influencer</div>
 <div class="tag">Exit Liquidity</div>
-<div class="tag">Institutional</div>
+<div class="tag">Micro Influencer</div>
 <div class="tag">Sybil Farmer</div>
+<div class="tag">Normie Trader</div>
 <div class="tag">Dev / Founder</div>
-<div class="tag">Normie First-Timer</div>
-
-</div>
-
-</section>
-
-<!-- CHAINS -->
-
-<section>
-
-<div class="section-mini">
-CHAIN-AWARE INTELLIGENCE
-</div>
-
-<h2 class="section-title">
-One archetype.<br>
-Four behaviors.
-</h2>
-
-<p class="section-text">
-VELORA adapts every intelligence layer to the chain your scenario lives on.
-</p>
-
-<div class="grid-cards">
-
-<div class="card">
-<h3>BASE</h3>
-<p>VELORA NATIVE</p>
-</div>
-
-<div class="card">
-<h3>ETH</h3>
-<p>MAINNET LIQUIDITY</p>
-</div>
-
-<div class="card">
-<h3>SOL</h3>
-<p>FASTEST MEMECOIN CHAIN</p>
-</div>
-
-<div class="card">
-<h3>BNB</h3>
-<p>RETAIL DOMINANT</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- PRICING -->
-
-<section>
-
-<div class="section-mini">
-PRICING
-</div>
-
-<h2 class="section-title">
-Pay for depth.<br>
-Not access.
-</h2>
-
-<div class="pricing">
-
-<div class="price-card">
-
-<div class="price-top">
-<h3>Quick</h3>
-<span>FREE FOREVER</span>
-</div>
-
-<ul>
-<li>15 agents • 3 rounds</li>
-<li>Prediction export</li>
-<li>Simulation reports</li>
-<li>Basic narrative analysis</li>
-</ul>
-
-<a href="#" class="primary-btn">
-Run Simulation
-</a>
-
-</div>
-
-<div class="price-card active">
-
-<div class="coming">
-COMING SOON
-</div>
-
-<div class="price-top">
-<h3>Deep</h3>
-<span>PAID IN $VELORA</span>
-</div>
-
-<ul>
-<li>100+ agents • 30+ rounds</li>
-<li>Live market intelligence</li>
-<li>Reactive simulations</li>
-<li>Coalition mapping</li>
-<li>Behavioral divergence tracking</li>
-</ul>
-
-<a href="#" class="secondary-btn">
-Launching Phase 2
-</a>
-
-</div>
+<div class="tag">VC Analyst</div>
 
 </div>
 
 </section>
 
 <footer>
-VELORA © 2026 — Prediction Intelligence Engine
+
+<div>
+VELORA © 2026
+</div>
+
+<div>
+Prediction Intelligence Engine
+</div>
+
 </footer>
 
 </body>
