@@ -14,6 +14,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
@@ -28,23 +29,23 @@ overflow-x:hidden;
 .bg{
 position:fixed;
 inset:0;
-overflow:hidden;
-z-index:-2;
+z-index:-3;
 background:
-radial-gradient(circle at top right,#6d3dff20 0%,transparent 35%),
-radial-gradient(circle at bottom left,#b27dff15 0%,transparent 40%),
-#06070a;
+radial-gradient(circle at top right,#7d4dff22 0%,transparent 35%),
+radial-gradient(circle at bottom left,#b48cff18 0%,transparent 40%),
+#05060a;
 }
 
 .grid{
 position:fixed;
 inset:0;
+z-index:-2;
 background-image:
 linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
 linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
-background-size:50px 50px;
+background-size:55px 55px;
 mask-image:linear-gradient(to bottom,transparent,black);
-z-index:-1;
+opacity:0.45;
 }
 
 /* NAVBAR */
@@ -58,108 +59,110 @@ padding:24px 7%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-backdrop-filter:blur(18px);
-background:#08090dbb;
+background:#090a0fcc;
+backdrop-filter:blur(20px);
 border-bottom:1px solid rgba(255,255,255,0.05);
-z-index:999;
+z-index:9999;
 }
 
 .logo{
 display:flex;
 align-items:center;
 gap:14px;
-font-size:24px;
+font-size:28px;
 font-weight:700;
 letter-spacing:2px;
 }
 
 .logo img{
-width:42px;
-height:42px;
+width:46px;
+height:46px;
 border-radius:14px;
 }
 
 .nav{
 display:flex;
-gap:40px;
+gap:38px;
 align-items:center;
 }
 
 .nav a{
 text-decoration:none;
-color:#b6b6b6;
 font-size:13px;
 letter-spacing:2px;
+color:#a0a0a0;
 transition:0.3s;
 }
 
 .nav a:hover{
-color:#b48cff;
+color:#c79fff;
 }
 
 .nav-btn{
-padding:15px 28px;
-background:linear-gradient(135deg,#7647ff,#b48cff);
-border-radius:16px;
-text-decoration:none;
+padding:16px 34px;
+border:none;
+cursor:pointer;
+border-radius:18px;
+background:linear-gradient(135deg,#7d4dff,#b48cff);
 color:white;
 font-size:14px;
 font-weight:600;
-box-shadow:0 0 40px #7647ff55;
+box-shadow:0 0 45px rgba(125,77,255,0.4);
+transition:0.3s;
+}
+
+.nav-btn:hover{
+transform:translateY(-3px);
 }
 
 /* HERO */
 
 .hero{
-padding:170px 7% 120px;
-min-height:100vh;
+padding:190px 7% 140px;
 position:relative;
-display:flex;
-flex-direction:column;
-justify-content:center;
+min-height:100vh;
 }
 
 .badge{
 display:inline-flex;
 align-items:center;
 gap:12px;
-padding:14px 22px;
+padding:15px 24px;
 border-radius:999px;
+border:1px solid rgba(255,255,255,0.07);
 background:#ffffff05;
-border:1px solid rgba(255,255,255,0.08);
 font-size:12px;
 letter-spacing:4px;
-color:#caaeff;
-margin-bottom:40px;
-width:max-content;
+color:#c9a6ff;
+margin-bottom:45px;
 }
 
 .dot{
 width:10px;
 height:10px;
 border-radius:50%;
-background:#9f73ff;
-box-shadow:0 0 18px #9f73ff;
+background:#b48cff;
+box-shadow:0 0 18px #b48cff;
 animation:pulse 2s infinite;
 }
 
 @keyframes pulse{
 0%{transform:scale(1);}
-50%{transform:scale(1.6);}
+50%{transform:scale(1.5);}
 100%{transform:scale(1);}
 }
 
 .hero h1{
 font-size:145px;
 line-height:0.86;
+letter-spacing:-7px;
 font-weight:600;
-letter-spacing:-6px;
-max-width:1200px;
-margin-bottom:35px;
+max-width:1000px;
+margin-bottom:38px;
 }
 
 .hero h1 span{
-background:linear-gradient(135deg,#ffffff,#9f73ff);
+background:linear-gradient(135deg,#ffffff,#b48cff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
@@ -169,25 +172,24 @@ font-size:22px;
 line-height:1.8;
 color:#8f8f8f;
 max-width:760px;
-margin-bottom:50px;
+margin-bottom:55px;
 }
 
 .hero-buttons{
 display:flex;
-gap:20px;
-flex-wrap:wrap;
+gap:22px;
 margin-bottom:90px;
+flex-wrap:wrap;
 }
 
 .primary{
-padding:20px 36px;
-background:linear-gradient(135deg,#7647ff,#b48cff);
+padding:20px 38px;
 border-radius:18px;
+background:linear-gradient(135deg,#7d4dff,#b48cff);
 text-decoration:none;
 color:white;
 font-weight:600;
-font-size:15px;
-box-shadow:0 0 45px #7647ff40;
+box-shadow:0 0 40px rgba(125,77,255,0.35);
 transition:0.3s;
 }
 
@@ -196,7 +198,7 @@ transform:translateY(-4px);
 }
 
 .secondary{
-padding:20px 36px;
+padding:20px 38px;
 border-radius:18px;
 border:1px solid rgba(255,255,255,0.08);
 text-decoration:none;
@@ -208,16 +210,16 @@ background:#ffffff04;
 
 .panel{
 position:absolute;
-right:7%;
 top:180px;
-width:480px;
-height:640px;
-background:linear-gradient(145deg,#11131a,#0a0b0f);
-border:1px solid rgba(255,255,255,0.06);
-border-radius:38px;
+right:7%;
+width:470px;
+height:620px;
+border-radius:40px;
 overflow:hidden;
+background:linear-gradient(180deg,#11131a,#0b0c10);
+border:1px solid rgba(255,255,255,0.06);
 box-shadow:
-0 0 80px rgba(118,71,255,0.20),
+0 0 120px rgba(125,77,255,0.15),
 inset 0 0 100px rgba(255,255,255,0.02);
 }
 
@@ -226,7 +228,7 @@ content:"";
 position:absolute;
 inset:0;
 background:
-radial-gradient(circle at top,#9f73ff22 0%,transparent 35%);
+radial-gradient(circle at top,#b48cff25 0%,transparent 35%);
 }
 
 .panel-grid{
@@ -248,15 +250,14 @@ justify-content:space-between;
 font-size:12px;
 letter-spacing:4px;
 color:#8a8a8a;
-z-index:2;
 }
 
 .live{
 width:12px;
 height:12px;
-background:#9f73ff;
 border-radius:50%;
-box-shadow:0 0 20px #9f73ff;
+background:#b48cff;
+box-shadow:0 0 20px #b48cff;
 }
 
 .node{
@@ -265,14 +266,14 @@ width:14px;
 height:14px;
 border-radius:50%;
 background:#b48cff;
-box-shadow:0 0 25px #9f73ff;
+box-shadow:0 0 24px #b48cff;
 }
 
 .n1{top:170px;left:90px;}
-.n2{top:240px;right:100px;}
+.n2{top:240px;right:90px;}
 .n3{bottom:180px;left:170px;}
 .n4{bottom:120px;right:90px;}
-.n5{top:360px;left:250px;}
+.n5{top:360px;left:240px;}
 
 .line{
 position:absolute;
@@ -289,16 +290,16 @@ transform:rotate(12deg);
 }
 
 .l2{
-width:240px;
+width:220px;
 top:250px;
-right:110px;
+right:100px;
 transform:rotate(120deg);
 }
 
 .l3{
-width:300px;
-bottom:190px;
-left:180px;
+width:280px;
+bottom:180px;
+left:170px;
 transform:rotate(-10deg);
 }
 
@@ -327,13 +328,13 @@ color:#8a8a8a;
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:24px;
-margin-top:30px;
+margin-top:20px;
 }
 
 .stat{
-padding:38px;
-background:#101117;
+padding:42px;
 border-radius:28px;
+background:#101117;
 border:1px solid rgba(255,255,255,0.06);
 position:relative;
 overflow:hidden;
@@ -343,12 +344,11 @@ overflow:hidden;
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(180deg,transparent,#7647ff12);
+background:linear-gradient(180deg,transparent,#7d4dff14);
 }
 
 .stat h2{
 font-size:72px;
-font-weight:600;
 margin-bottom:10px;
 background:linear-gradient(135deg,#ffffff,#b48cff);
 -webkit-background-clip:text;
@@ -364,29 +364,29 @@ color:#8f8f8f;
 /* SECTION */
 
 .section{
-padding:120px 7%;
+padding:140px 7%;
 }
 
 .section-mini{
 font-size:12px;
 letter-spacing:6px;
-color:#9f73ff;
-margin-bottom:28px;
+color:#b48cff;
+margin-bottom:30px;
 }
 
 .section-title{
-font-size:110px;
-line-height:0.9;
+font-size:105px;
+line-height:0.92;
 letter-spacing:-5px;
-margin-bottom:30px;
 max-width:1000px;
+margin-bottom:35px;
 }
 
 .section-text{
 font-size:21px;
 line-height:1.9;
 color:#8f8f8f;
-max-width:850px;
+max-width:860px;
 margin-bottom:70px;
 }
 
@@ -399,27 +399,27 @@ gap:28px;
 }
 
 .card{
-padding:45px;
-background:#101117;
+padding:48px;
 border-radius:32px;
+background:#101117;
 border:1px solid rgba(255,255,255,0.06);
+transition:0.35s;
 position:relative;
 overflow:hidden;
-transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:#7d4dff66;
 }
 
 .card::before{
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(180deg,transparent,#7647ff14);
+background:linear-gradient(180deg,transparent,#7d4dff18);
 opacity:0;
-transition:0.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-border-color:#7647ff55;
+transition:0.35s;
 }
 
 .card:hover::before{
@@ -428,7 +428,7 @@ opacity:1;
 
 .card h3{
 font-size:68px;
-margin-bottom:16px;
+margin-bottom:15px;
 }
 
 .card p{
@@ -452,18 +452,333 @@ border:1px solid rgba(255,255,255,0.08);
 border-radius:16px;
 font-size:14px;
 letter-spacing:2px;
+transition:0.3s;
+}
+
+.tag:hover{
+background:#171821;
+border-color:#7d4dff66;
+}
+
+/* TOKENOMICS */
+
+.tokenomics-section{
+padding:140px 7%;
+position:relative;
+overflow:hidden;
+}
+
+.contract-box{
+margin-top:60px;
+padding:45px;
+background:#0f1015;
+border:1px solid rgba(255,255,255,0.08);
+border-radius:32px;
+max-width:900px;
+margin-bottom:45px;
+}
+
+.contract-mini{
+font-size:12px;
+letter-spacing:6px;
+color:#b48cff;
+margin-bottom:24px;
+}
+
+.contract-address{
+font-size:32px;
+font-weight:600;
+line-height:1.5;
+margin-bottom:20px;
+}
+
+.copy-text{
+font-size:12px;
+letter-spacing:4px;
+color:#8f8f8f;
+}
+
+.token-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+overflow:hidden;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.token-card{
+padding:70px 40px;
+background:#111217;
+border-right:1px solid rgba(255,255,255,0.08);
+text-align:center;
+}
+
+.token-card:last-child{
+border-right:none;
+}
+
+.token-card h3{
+font-size:64px;
+margin-bottom:14px;
+}
+
+.token-card span{
+font-size:12px;
+letter-spacing:5px;
+color:#8f8f8f;
+}
+
+/* ROADMAP */
+
+.roadmap-section{
+padding:140px 7%;
+}
+
+.roadmap-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:28px;
+margin-top:70px;
+}
+
+.roadmap-card{
+padding:50px;
+border-radius:32px;
+background:#101117;
+border:1px solid rgba(255,255,255,0.06);
+}
+
+.roadmap-card.active{
+border-color:#7d4dff66;
+background:linear-gradient(180deg,#161722,#101117);
+}
+
+.phase{
+font-size:12px;
+letter-spacing:5px;
+color:#b48cff;
+margin-bottom:24px;
+}
+
+.roadmap-card h3{
+font-size:46px;
+margin-bottom:30px;
+}
+
+.roadmap-card ul{
+display:flex;
+flex-direction:column;
+gap:18px;
+padding-left:18px;
+color:#8f8f8f;
+line-height:1.8;
 }
 
 /* FOOTER */
 
-footer{
-padding:80px 7%;
+.footer{
+padding:120px 7% 50px;
 border-top:1px solid rgba(255,255,255,0.06);
+background:#08090d;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1fr;
+gap:50px;
+margin-bottom:80px;
+}
+
+.footer-logo{
+display:flex;
+align-items:center;
+gap:16px;
+margin-bottom:28px;
+}
+
+.footer-logo img{
+width:50px;
+height:50px;
+border-radius:14px;
+}
+
+.footer-logo span{
+font-size:32px;
+font-weight:700;
+}
+
+.footer-desc{
+font-size:18px;
+line-height:1.8;
+color:#8f8f8f;
+max-width:380px;
+}
+
+.footer-title{
+font-size:13px;
+letter-spacing:5px;
+margin-bottom:30px;
+color:#b48cff;
+}
+
+.footer a{
+display:block;
+text-decoration:none;
+margin-bottom:22px;
+font-size:17px;
+color:#8f8f8f;
+transition:0.3s;
+}
+
+.footer a:hover{
+color:white;
+}
+
+.footer-bottom{
+padding-top:40px;
+border-top:1px solid rgba(255,255,255,0.06);
+font-size:13px;
+letter-spacing:3px;
+color:#6f6f6f;
+}
+
+/* WALLET MODAL */
+
+.wallet-modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.72);
+backdrop-filter:blur(12px);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:99999;
+opacity:0;
+pointer-events:none;
+transition:0.35s;
+padding:20px;
+}
+
+.wallet-modal.active{
+opacity:1;
+pointer-events:auto;
+}
+
+.wallet-box{
+width:100%;
+max-width:760px;
+background:linear-gradient(180deg,#18191f,#0e0f13);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:38px;
+padding:35px;
+box-shadow:0 0 100px rgba(118,71,255,0.25);
+}
+
+.wallet-top{
 display:flex;
 justify-content:space-between;
 align-items:center;
-color:#777;
-font-size:14px;
+margin-bottom:35px;
+}
+
+.wallet-title{
+font-size:42px;
+font-weight:600;
+}
+
+.wallet-close{
+width:50px;
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+background:#ffffff08;
+cursor:pointer;
+font-size:22px;
+transition:0.3s;
+}
+
+.wallet-close:hover{
+background:#7d4dff;
+}
+
+.wallet-list{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+.wallet-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px;
+background:#ffffff04;
+border:1px solid rgba(255,255,255,0.05);
+border-radius:22px;
+transition:0.3s;
+cursor:pointer;
+}
+
+.wallet-item:hover{
+background:#171821;
+border-color:#7d4dff66;
+transform:translateY(-2px);
+}
+
+.wallet-left{
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.wallet-left img{
+width:58px;
+height:58px;
+border-radius:18px;
+background:white;
+padding:6px;
+object-fit:contain;
+}
+
+.wallet-left span{
+font-size:24px;
+}
+
+.wallet-arrow{
+font-size:42px;
+color:#7f7f7f;
+}
+
+.wallet-search{
+margin-top:28px;
+}
+
+.search-box{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:24px 28px;
+background:#15161b;
+border-radius:28px;
+border:1px solid rgba(255,255,255,0.06);
+font-size:24px;
+color:#bfbfbf;
+}
+
+.wallet-count{
+padding:10px 18px;
+background:#ffffff08;
+border-radius:16px;
+font-size:18px;
+}
+
+.wallet-bottom{
+text-align:center;
+margin-top:28px;
+font-size:15px;
+letter-spacing:3px;
+color:#6f6f6f;
 }
 
 /* MOBILE */
@@ -472,31 +787,35 @@ font-size:14px;
 
 .panel{
 position:relative;
-width:100%;
 right:auto;
 top:auto;
+width:100%;
 margin-top:80px;
-}
-
-.hero{
-padding-top:150px;
 }
 
 .hero h1{
 font-size:90px;
 }
 
+.section-title{
+font-size:72px;
+}
+
 .stats{
 grid-template-columns:repeat(2,1fr);
 }
 
-.section-title{
-font-size:70px;
 }
 
+@media(max-width:800px){
+
+.nav{
+display:none;
 }
 
-@media(max-width:700px){
+.hero{
+padding-top:160px;
+}
 
 .hero h1{
 font-size:62px;
@@ -504,7 +823,7 @@ letter-spacing:-3px;
 }
 
 .section-title{
-font-size:50px;
+font-size:52px;
 }
 
 .hero p,
@@ -526,18 +845,39 @@ width:100%;
 text-align:center;
 }
 
-.nav{
-display:none;
+.token-grid{
+grid-template-columns:1fr;
 }
 
-.panel{
-height:500px;
+.token-card{
+border-right:none;
+border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-footer{
-flex-direction:column;
-gap:20px;
-text-align:center;
+.footer-grid{
+grid-template-columns:1fr;
+}
+
+.wallet-box{
+padding:24px;
+}
+
+.wallet-title{
+font-size:28px;
+}
+
+.wallet-left span{
+font-size:18px;
+}
+
+.wallet-left img{
+width:48px;
+height:48px;
+}
+
+.search-box{
+font-size:18px;
+padding:20px;
 }
 
 }
@@ -560,8 +900,12 @@ VELORA
 <a href="#">INTELLIGENCE</a>
 <a href="#">SIMULATION</a>
 <a href="#">ARCHETYPES</a>
-<a href="#">PRICING</a>
-<a href="#" class="nav-btn">CONNECT</a>
+<a href="#">TOKENOMICS</a>
+
+<button class="nav-btn" onclick="openWallet()">
+CONNECT WALLET
+</button>
+
 </div>
 
 </header>
@@ -584,8 +928,15 @@ VELORA is a multi-agent intelligence engine designed to simulate market psycholo
 </p>
 
 <div class="hero-buttons">
-<a href="#" class="primary">Run Simulation →</a>
-<a href="#" class="secondary">Explore Intelligence</a>
+
+<a href="#" class="primary">
+Run Simulation →
+</a>
+
+<a href="#" class="secondary">
+Explore Intelligence
+</a>
+
 </div>
 
 <div class="stats">
@@ -675,7 +1026,7 @@ Chain-aware simulations across Ethereum, Base, Solana, and BNB ecosystems.
 <div class="card">
 <h3>LIVE</h3>
 <p>
-Realtime volatility tracking, narrative monitoring, and behavioral divergence analysis.
+Realtime volatility tracking and behavioral divergence analysis.
 </p>
 </div>
 
@@ -695,7 +1046,7 @@ None generic.
 </h2>
 
 <p class="section-text">
-Each VELORA agent carries accumulated market psychology, chain-specific behavior, and calibrated emotional bias.
+Each VELORA agent carries accumulated market psychology and calibrated emotional bias.
 </p>
 
 <div class="tags">
@@ -710,25 +1061,12 @@ Each VELORA agent carries accumulated market psychology, chain-specific behavior
 <div class="tag">Micro Influencer</div>
 <div class="tag">Sybil Farmer</div>
 <div class="tag">Normie Trader</div>
-<div class="tag">Dev / Founder</div>
-<div class="tag">VC Analyst</div>
 
 </div>
 
 </section>
 
-<footer>
-
-<div>
-Prediction Intelligence Engine
-</div>
-
-</footer>
-<!-- TOKENOMICS -->
-
 <section class="tokenomics-section">
-
-<div class="tokenomics-bg"></div>
 
 <div class="section-mini">
 TOKENOMICS
@@ -738,8 +1076,8 @@ TOKENOMICS
 Fueling the Engine
 </h2>
 
-<p class="section-text token-text">
-$VELORA is the native utility token powering the VELORA intelligence network. It unlocks premium simulations, advanced prediction layers, realtime swarm coordination, and ecosystem governance.
+<p class="section-text">
+$VELORA powers the intelligence layer, realtime simulations, and premium swarm analysis.
 </p>
 
 <div class="contract-box">
@@ -749,7 +1087,7 @@ CONTRACT ADDRESS
 </div>
 
 <div class="contract-address">
-Cooming Soon
+COMING SOON
 </div>
 
 <div class="copy-text">
@@ -779,8 +1117,6 @@ CLICK TO COPY
 
 </section>
 
-<!-- ROADMAP -->
-
 <section class="roadmap-section">
 
 <div class="section-mini">
@@ -804,9 +1140,9 @@ PHASE 01
 
 <ul>
 <li>VELORA Core Engine</li>
-<li>Archetype Intelligence</li>
 <li>Prediction Simulations</li>
 <li>Base Ecosystem Launch</li>
+<li>Agent Intelligence</li>
 </ul>
 
 </div>
@@ -821,9 +1157,9 @@ PHASE 02
 
 <ul>
 <li>Realtime Onchain Feeds</li>
-<li>Coalition Mapping</li>
 <li>Wallet Intelligence</li>
 <li>Premium Simulations</li>
+<li>Coalition Mapping</li>
 </ul>
 
 </div>
@@ -839,8 +1175,8 @@ PHASE 03
 <ul>
 <li>VELORA Swarm Layer</li>
 <li>Open Prediction API</li>
-<li>AI Governance Layer</li>
 <li>Crosschain Expansion</li>
+<li>AI Governance Layer</li>
 </ul>
 
 </div>
@@ -848,8 +1184,6 @@ PHASE 03
 </div>
 
 </section>
-
-<!-- FOOTER -->
 
 <footer class="footer">
 
@@ -879,8 +1213,8 @@ PRODUCT
 
 <a href="#">Run Simulation</a>
 <a href="#">Archetypes</a>
-<a href="#">Pricing</a>
 <a href="#">Prediction Engine</a>
+<a href="#">Pricing</a>
 
 </div>
 
@@ -917,238 +1251,93 @@ VELORA © 2026 — Multi-Agent Prediction Intelligence
 
 </footer>
 
-<style>
+<!-- WALLET MODAL -->
 
-/* TOKENOMICS */
+<div class="wallet-modal" id="walletModal">
 
-.tokenomics-section{
-padding:140px 7%;
-position:relative;
-overflow:hidden;
+<div class="wallet-box">
+
+<div class="wallet-top">
+
+<div class="wallet-title">
+Connect Wallet
+</div>
+
+<div class="wallet-close" onclick="closeWallet()">
+✕
+</div>
+
+</div>
+
+<div class="wallet-list">
+
+<div class="wallet-item">
+<div class="wallet-left">
+<img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png?v=029">
+<span>Binance Wallet</span>
+</div>
+<div class="wallet-arrow">›</div>
+</div>
+
+<div class="wallet-item">
+<div class="wallet-left">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg">
+<span>MetaMask</span>
+</div>
+<div class="wallet-arrow">›</div>
+</div>
+
+<div class="wallet-item">
+<div class="wallet-left">
+<img src="https://seeklogo.com/images/S/safepal-logo-8A5B6B5F4B-seeklogo.com.png">
+<span>SafePal</span>
+</div>
+<div class="wallet-arrow">›</div>
+</div>
+
+<div class="wallet-item">
+<div class="wallet-left">
+<img src="https://trustwallet.com/assets/images/media/assets/trust_platform.svg">
+<span>Trust Wallet</span>
+</div>
+<div class="wallet-arrow">›</div>
+</div>
+
+</div>
+
+<div class="wallet-search">
+
+<div class="search-box">
+
+<span>Search Wallet</span>
+
+<div class="wallet-count">
+230+
+</div>
+
+</div>
+
+</div>
+
+<div class="wallet-bottom">
+Powered by VELORA
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function openWallet(){
+document.getElementById("walletModal").classList.add("active");
 }
 
-.tokenomics-bg{
-position:absolute;
-inset:0;
-background:
-radial-gradient(circle at top,#ffffff10 0%,transparent 40%),
-linear-gradient(180deg,#111217 0%,#09090c 100%);
-opacity:0.8;
+function closeWallet(){
+document.getElementById("walletModal").classList.remove("active");
 }
 
-.token-text{
-max-width:900px;
-position:relative;
-z-index:2;
-}
+</script>
 
-.contract-box{
-position:relative;
-z-index:2;
-margin-top:60px;
-padding:45px;
-background:#0f1015;
-border:1px solid rgba(255,255,255,0.08);
-border-radius:32px;
-max-width:900px;
-margin-bottom:40px;
-}
-
-.contract-mini{
-font-size:12px;
-letter-spacing:6px;
-color:#9f73ff;
-margin-bottom:25px;
-}
-
-.contract-address{
-font-size:32px;
-line-height:1.5;
-font-weight:600;
-margin-bottom:20px;
-word-break:break-word;
-}
-
-.copy-text{
-font-size:12px;
-letter-spacing:5px;
-color:#8f8f8f;
-}
-
-.token-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:0;
-border:1px solid rgba(255,255,255,0.08);
-position:relative;
-z-index:2;
-overflow:hidden;
-}
-
-.token-card{
-padding:70px 40px;
-background:#111217aa;
-backdrop-filter:blur(10px);
-border-right:1px solid rgba(255,255,255,0.08);
-text-align:center;
-}
-
-.token-card:last-child{
-border-right:none;
-}
-
-.token-card h3{
-font-size:64px;
-margin-bottom:15px;
-font-weight:600;
-}
-
-.token-card span{
-font-size:13px;
-letter-spacing:5px;
-color:#8f8f8f;
-}
-
-/* ROADMAP */
-
-.roadmap-section{
-padding:140px 7%;
-}
-
-.roadmap-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:28px;
-margin-top:70px;
-}
-
-.roadmap-card{
-padding:50px;
-background:#101117;
-border-radius:32px;
-border:1px solid rgba(255,255,255,0.06);
-position:relative;
-overflow:hidden;
-}
-
-.roadmap-card.active{
-border-color:#9f73ff55;
-background:linear-gradient(180deg,#151720,#101117);
-}
-
-.phase{
-font-size:12px;
-letter-spacing:5px;
-color:#9f73ff;
-margin-bottom:25px;
-}
-
-.roadmap-card h3{
-font-size:48px;
-margin-bottom:30px;
-}
-
-.roadmap-card ul{
-display:flex;
-flex-direction:column;
-gap:18px;
-padding-left:20px;
-color:#8f8f8f;
-line-height:1.8;
-}
-
-/* FOOTER */
-
-.footer{
-padding:120px 7% 50px;
-border-top:1px solid rgba(255,255,255,0.06);
-background:#09090c;
-}
-
-.footer-grid{
-display:grid;
-grid-template-columns:2fr 1fr 1fr 1fr;
-gap:50px;
-margin-bottom:80px;
-}
-
-.footer-logo{
-display:flex;
-align-items:center;
-gap:16px;
-margin-bottom:28px;
-}
-
-.footer-logo img{
-width:50px;
-height:50px;
-border-radius:14px;
-}
-
-.footer-logo span{
-font-size:32px;
-font-weight:700;
-letter-spacing:2px;
-}
-
-.footer-desc{
-font-size:18px;
-color:#8f8f8f;
-line-height:1.8;
-max-width:380px;
-}
-
-.footer-title{
-font-size:13px;
-letter-spacing:5px;
-margin-bottom:30px;
-color:#9f73ff;
-}
-
-.footer a{
-display:block;
-text-decoration:none;
-color:#8f8f8f;
-margin-bottom:22px;
-font-size:17px;
-transition:0.3s;
-}
-
-.footer a:hover{
-color:white;
-}
-
-.footer-bottom{
-padding-top:40px;
-border-top:1px solid rgba(255,255,255,0.06);
-font-size:13px;
-letter-spacing:3px;
-color:#6f6f6f;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.token-grid{
-grid-template-columns:1fr;
-}
-
-.token-card{
-border-right:none;
-border-bottom:1px solid rgba(255,255,255,0.08);
-}
-
-.footer-grid{
-grid-template-columns:1fr;
-}
-
-.contract-address{
-font-size:22px;
-}
-
-}
-
-</style>
 </body>
 </html>
